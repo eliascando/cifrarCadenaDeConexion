@@ -14,7 +14,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WiteLine("Ingrese la cadena de conexion:")
+            Console.WriteLine("Ingrese la cadena de conexion:");
             string connectionString = Console.ReadLine();
             Console.WriteLine("Ingrese llave de cifrado:");
             string entrada = Console.ReadLine();
@@ -22,7 +22,7 @@ namespace ConsoleApp1
             string encryptedConnectionString = EncryptConnectionString(connectionString,encryptedKeyEncryption);
             Console.WriteLine("Llave de cifrado encriptada: " + encryptedKeyEncryption);
             Console.WriteLine("Cadena de conexión encriptada: " + encryptedConnectionString);
-            string decryptedConnectionString = DecryptConnectionString(encryptedConnectionString, encryptedKeyEncrypted);
+            string decryptedConnectionString = DecryptConnectionString(encryptedConnectionString, encryptedKeyEncryption);
             Console.WriteLine("Cadena de conexión desencriptada: " + decryptedConnectionString);
         }
 
