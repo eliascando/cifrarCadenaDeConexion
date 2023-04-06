@@ -8,21 +8,22 @@ using Org.BouncyCastle.Crypto.Digests;
 namespace ConsoleApp1
 {
     /// <summary>
-    /// Programa privado usado para cifrar la cadena de conexión y contiene un método para descifrarla
+    /// Programa usado para cifrar la cadena de conexión
     /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            string connectionString = "Data Source=elin.database.windows.net;Initial Catalog=SISTEMA_ERP;Persist Security Info=True;User ID=elin;Password=lagalletaasisequiebra1@";
-            Console.WriteLine("Ingrese llave de encriptación");
+            Console.WiteLine("Ingrese la cadena de conexion:")
+            string connectionString = Console.ReadLine();
+            Console.WriteLine("Ingrese llave de cifrado:");
             string entrada = Console.ReadLine();
-            string encryptedKeyEncrypted = Encrypt(entrada);
-            string encryptedConnectionString = EncryptConnectionString(connectionString,encryptedKeyEncrypted);
-            Console.WriteLine("Llave de encriptación encriptada: " + encryptedKeyEncrypted);
-            Console.WriteLine("Encrypted Connection String: " + encryptedConnectionString);
+            string encryptedKeyEncryption = Encrypt(entrada);
+            string encryptedConnectionString = EncryptConnectionString(connectionString,encryptedKeyEncryption);
+            Console.WriteLine("Llave de cifrado encriptada: " + encryptedKeyEncryption);
+            Console.WriteLine("Cadena de conexión encriptada: " + encryptedConnectionString);
             string decryptedConnectionString = DecryptConnectionString(encryptedConnectionString, encryptedKeyEncrypted);
-            Console.WriteLine("Decrypted Connection String: " + decryptedConnectionString);
+            Console.WriteLine("Cadena de conexión desencriptada: " + decryptedConnectionString);
         }
 
         public static string Encrypt(string entrada)
